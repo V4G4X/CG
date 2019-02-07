@@ -1,0 +1,1 @@
+g++ dda.c -lglut -lGL -lGLEW -lGLU -o OpenGLExample
