@@ -18,7 +18,59 @@ typedef struct point{
 	}
 }point;
 
-
+void bres(int x1,int yy1,int x2,int y2){
+	int a1,b1,a2,b2,da,db,p,a,b,ai,bi;
+	if(abs(x2-x1)>abs(y2-yy1)){
+		a1=x1;
+		a2=x2;
+		b1=yy1;
+		b2=y2;
+	}
+	else{
+		a1=yy1;
+		a2=y2;
+		b1=x1;
+		b2=x2;
+	    }
+	if((a2-a1)<0){
+		ai=-1;
+	}
+	if((a2-a1)>0){
+		ai=1;
+	}
+	if((b2-b1)<0){
+		bi=-1;
+	}
+	if((b2-b1)>0){
+		bi=1;
+	}
+	da=abs(a2-a1);
+	db=abs(b2-b1);
+	p=2*db-da;
+	int i=0;
+	a=x1;
+	b=yy1;
+printf("\n%d\n",da-1);
+	while(i<(da-1)){
+		
+		if(p<0){
+			printf("\n8\n");
+			a+=ai;
+			setpixel(a,b);
+			p=p+(2*db);
+			i++;
+		}
+		else{
+			printf("\n9\n");
+			a+=ai;
+			b+=bi;
+			setpixel(a,b);
+			p=p+(2*db-2*da);
+			i++;
+		}
+	}
+glFlush();
+}
 
 void swap(int *x,int *x1){
 	int c = *x;
@@ -30,7 +82,68 @@ void axis(){
 /*
 	dda(-750,0,750,0);
 	dda(0,-750,0,750);
-	*/
+	*/void bres(int x1,int yy1,int x2,int y2){
+	printf("\n4\n");
+	int a1,b1,a2,b2,da,db,p,a,b,ai,bi;
+	if(abs(x2-x1)>abs(y2-yy1))
+	{
+		a1=x1;
+		a2=x2;
+		b1=yy1;
+		b2=y2;
+	}
+	else{
+		a1=yy1;
+		a2=y2;
+		b1=x1;
+		b2=x2;
+	    }
+	printf("\n5\n");
+	if((a2-a1)<0)
+	{
+		ai=-1;
+	}
+	if((a2-a1)>0)
+	{
+		ai=1;
+	}
+	if((b2-b1)<0)
+	{
+		bi=-1;
+	}
+	if((b2-b1)>0)
+	{
+		bi=1;
+	}
+	da=abs(a2-a1);
+	db=abs(b2-b1);
+	p=2*db-da;
+	int i=0;
+	a=x1;
+	b=yy1;
+printf("\n6\n");
+printf("\n%d\n",da-1);
+	while(i<(da-1)){
+		
+		if(p<0){
+			printf("\n8\n");
+			a+=ai;
+			setpixel(a,b);
+			p=p+(2*db);
+			i++;
+		}
+		else{
+			printf("\n9\n");
+			a+=ai;
+			b+=bi;
+			setpixel(a,b);
+			p=p+(2*db-2*da);
+			i++;
+		}
+	}
+glFlush();
+printf("\n7\n");
+}
 }
 
 void render(){
@@ -39,7 +152,68 @@ void render(){
 	point p1,p2,p3;
 	printf("Point1:\n");
 	p1.scanner();
-	printf("Point2:\n");
+	printf("Point2:\n");void bres(int x1,int yy1,int x2,int y2){
+	printf("\n4\n");
+	int a1,b1,a2,b2,da,db,p,a,b,ai,bi;
+	if(abs(x2-x1)>abs(y2-yy1))
+	{
+		a1=x1;
+		a2=x2;
+		b1=yy1;
+		b2=y2;
+	}
+	else{
+		a1=yy1;
+		a2=y2;
+		b1=x1;
+		b2=x2;
+	    }
+	printf("\n5\n");
+	if((a2-a1)<0)
+	{
+		ai=-1;
+	}
+	if((a2-a1)>0)
+	{
+		ai=1;
+	}
+	if((b2-b1)<0)
+	{
+		bi=-1;
+	}
+	if((b2-b1)>0)
+	{
+		bi=1;
+	}
+	da=abs(a2-a1);
+	db=abs(b2-b1);
+	p=2*db-da;
+	int i=0;
+	a=x1;
+	b=yy1;
+printf("\n6\n");
+printf("\n%d\n",da-1);
+	while(i<(da-1)){
+		
+		if(p<0){
+			printf("\n8\n");
+			a+=ai;
+			setpixel(a,b);
+			p=p+(2*db);
+			i++;
+		}
+		else{
+			printf("\n9\n");
+			a+=ai;
+			b+=bi;
+			setpixel(a,b);
+			p=p+(2*db-2*da);
+			i++;
+		}
+	}
+glFlush();
+printf("\n7\n");
+}
 	p2.scanner();
 	printf("Point3:\n");
 	p3.scanner();
