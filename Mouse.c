@@ -1,15 +1,13 @@
 #include<stdio.h>
 #include<GL/freeglut.h>
 #include<GL/gl.h>
-#include<math.h>
 
 int event;
-
 void myInit(void){
 	glClearColor(0.0, 0.0, 0.0, 0.0);
+	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(0.0f, 0.0f, 1.0f);
 	gluOrtho2D(0,800,450,0);
-	
 }
 
 void initrect(){
@@ -37,11 +35,7 @@ void initrect(){
 	glVertex2i(170,50);
 	glVertex2i(120,50);
 	glEnd();
-}
-
-void display(){
-	glClear(GL_COLOR_BUFFER_BIT);
-	initrect();
+	glColor3f(1.0f, 0.0f, 1.0f);
 	glFlush();
 }
 
@@ -55,13 +49,13 @@ void mouseDemo(int btn,int st,int x,int y){
 	static int xst,yst,pt=0;
 	//Change colour incase of palette event
 	//Red Box
-	if((x>0 && x<50)&& (y>0 && y<50))
+	if((x>0 && x<50) && (y>0 && y<50))
 		glColor3f(1.0,0.0,0.0);
 	//Green Box
-	else if((x>60 && x<110)&& (y>0 && y<50))
+	else if((x>60 && x<110) && (y>0 && y<50))
 		glColor3f(0.0,1.0,0.0);
 	//Blue Box
-	else if((x>120 && x<170)&& (y>0 && y<50))
+	else if((x>120 && x<170) && (y>0 && y<50))
 		glColor3f(0.0,0.0,1.0);
 	
 	else if(btn==GLUT_LEFT_BUTTON&&st==GLUT_DOWN){
@@ -69,7 +63,6 @@ void mouseDemo(int btn,int st,int x,int y){
 			xst=x;
 			yst=y;
 			pt++;
-		//	glColor3f(1.0f, 0.0f, 1.0f);
 		}
 		else{
 			glBegin(GL_LINES);
@@ -85,14 +78,11 @@ void mouseDemo(int btn,int st,int x,int y){
 	}
 	else if(btn==GLUT_MIDDLE_BUTTON && st==GLUT_DOWN){
 		static int c=0;
-		if(c==0){
+		if(c==1)
 			glColor3f(0.0f, 1.0f, 1.0f);
-			c=1;
-		}
-		else{
+		else
 			glColor3f(1.0f, 0.0f, 1.0f);
-			c=0;
-		}
+		c=1-c;
 	}
 glFlush();	
 }
@@ -101,14 +91,12 @@ int main(int argc, char** argv){
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(800,450);
-	glutInitWindowPosition(0,0);
+	glutInitWindowPosition(400,225);
 	glutCreateWindow("Testing Mouse");
 	myInit();
-	glutDisplayFunc(display);
+	glutDisplayFunc(initrect);
 	glutMouseFunc(mouseDemo);
 	glutMainLoop();
 	return 0;
 }
-
-
 //g++ mouse.c -lglut -lGL -lGLEW -lGLU -o OpenGLExample
