@@ -81,9 +81,8 @@ void bres(int x1,int yy1,int x2,int y2){
 	int i=0;
 	a=x1;
 	b=yy1;
-printf("\n%d\n",da-1);
+	printf("\n%d\n",da-1);
 	while(i<(da-1)){
-		
 		if(p<0){
 			a+=ai;
 			setpixel(a,b);
@@ -98,7 +97,7 @@ printf("\n%d\n",da-1);
 			i++;
 		}
 	}
-glFlush();
+	glFlush();
 }
 
 void draw(int x1,int yy1,int x2,int y2){
